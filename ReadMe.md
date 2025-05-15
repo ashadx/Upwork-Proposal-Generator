@@ -1,62 +1,92 @@
+
 # Upwork Proposal Generator with RAG (HuggingFace Embeddings)
+
+  
 
 This project builds a Streamlit-based AI Agent that generates Upwork proposals using Retrieval-Augmented Generation (RAG). It smartly selects portfolio items and formats proposals based on past examples, using HuggingFace sentence embeddings.
 
----
+  
 
 ## Features
 
-- 📝 Generates professional Upwork proposals using job title and description.
-- 📂 Matches the most relevant portfolio using semantic search.
-- 📜 Uses previously written proposals as RAG examples for formatting.
-- 🚀 Built with Streamlit, LangChain, HuggingFace embeddings, and Pandas.
+|  Feature |  Description |
+|--|--|
+| 📝 Proposal Generation | Creates professional proposals from job titles/descriptions |
+| 🔍 Semantic Matching | Finds most relevant portfolio items using embeddings |
+| 📚 RAG Integration | Uses past proposals as examples for better formatting |
+| 🛠️ Tech Stack | Streamlit, LangChain, HuggingFace, ChromaDB |
 
----
+  
 
 ## Project Structure
 
+  
+
+```text
 Upwork-Proposal-Generator/
 │
 ├── app/
-│ ├── main.py # Streamlit app UI
-│ ├── proposal_generator.py # Core proposal generation logic
-│ └── ...
+│ ├── main.py # Streamlit application
+│ ├── proposal_generator.py # Core generation logic
+│ └── utils.py # Helper functions
 │
 ├── data/
-│ └── your_portfolio.pdf # Your uploaded portfolio (PDF or TXT)
+│ ├── sample.csv # Portfolio items
+│ └── proposals.json # Past proposal examples
 │
-├── vectorstore/ # ChromaDB index files
+├── vectorstore/ # ChromaDB vector storage
+│ ├── chroma-collections.parquet
+│ └── chroma-embeddings.parquet
 │
 ├── .env # Environment variables
 ├── requirements.txt # Python dependencies
-└── README.md # Project documentation
+└── README.md # This documentation
+```
+
+## 🛠️ Installation
+
+### Prerequisites
+
+- Python 3.8 or higher
+- Git (for cloning the repository)
+- [Pip](https://pip.pypa.io/en/stable/installation/) (Python package manager)
 
 
----
+### Step-by-Step Setup
 
-## Create a Virtual Environment (optional but recommended)
+1. **Clone the repository**:
 
 ```bash
-# Create virtual environment
+git clone https://github.com/ashadx/Upwork-Proposal-Generator.git
+cd Upwork-Proposal-Generator
+```
+2. **Create a virtual environment** (recommended):
+```bash
 python -m venv venv
-
-# Activate on Windows
-venv\Scripts\activate
-
-# Activate on macOS/Linux
-source venv/bin/activate
-
-## Install Dependencies
-
-```bash
-pip install -r requirements.txt
+```
+3. **Activate the environment**:
+		- ***Windows***:
+			   ```bash
+			venv\Scripts\activate
+			```
+		- **macOS/Linux**:
+				```bash
+			source venv/bin/activate
+			```
+			
+4. **Install dependencies**:
+		```bash
+		pip install -r requirements.txt
+		```
+5. **Set up environment variables**:
+	-   Create a  `.env`  file in the project root 
 
 ## Run the App
-
 ```bash
 streamlit run app.py
+```
 
-## 🧠 How It Works
+## How It Works
 
 1. **Input**  
    You provide the **Job Title** and **Job Description** of the freelance job you want to apply for.
@@ -75,13 +105,13 @@ streamlit run app.py
    The final proposal text is displayed to you, ready to be sent to the client.
 
 
-## 📸 UI Screenshot
+## UI Screenshot
 
 ![Proposal Generator UI](./ui_screenshot.png)
 
 ---
 
-## 👤 Created By
+## Created By
 
 **Asad Aslam**  
 [GitHub](https://github.com/ashadx) | [LinkedIn](https://linkedin.com/in/asadaslam330)  
